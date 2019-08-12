@@ -3,8 +3,10 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 const initialState = {};
+// thunk lets you write async logic
 const middleware = [thunk];
 const store = createStore(
+  // exported default from index.js => rootReducer
   rootReducer,
   initialState,
   compose(

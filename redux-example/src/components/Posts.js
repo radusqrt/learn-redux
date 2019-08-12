@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { fetchPosts } from "../actions/postActions";
 
 class Posts extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchPosts();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillUpdate(nextProps) {
     if (nextProps.newPost) {
       this.props.posts.unshift(nextProps.newPost);
     }
@@ -41,6 +41,7 @@ const mapStateToProps = state => ({
   newPost: state.posts.item
 });
 
+// Add props from Redux store.
 export default connect(
   mapStateToProps,
   { fetchPosts }
